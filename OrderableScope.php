@@ -16,7 +16,7 @@ class OrderableScope implements ScopeInterface
 	 */
 	public function apply(Builder $builder, Model $model)
 	{
-		$builder->getQuery()->orderBy($model->getOrderColumnName(), 'asc');
+		$builder->getQuery()->orderBy($model->getOrderColumnName(), $model->getOrderColumnDirection());
 	}
 
 	/**
@@ -38,6 +38,11 @@ class OrderableScope implements ScopeInterface
         	{
         		unset($query->{$property}[$key]);
         	}
+        }
+
+        if (is_array($query->{$property}) && count($query->{$property}) == 0)
+        {
+        	$query->{$property} = null;
         }
 	}
 }
