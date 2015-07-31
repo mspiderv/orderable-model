@@ -8,5 +8,5 @@ interface OrderableModelContract
 	public function getOrderColumnName();
 
 	public function getOrderColumnDirection();
-	
+
 }

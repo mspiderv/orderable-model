@@ -31,7 +31,7 @@ class OrderableScope implements ScopeInterface
 		$property = $query->unions ? 'unionOrders' : 'orders';
 		$orderColumn = $model->getOrderColumnName();
 		$orderDirection = $model->getOrderColumnDirection();
-        
+
         foreach ($query->{$property} as $key => $order)
         {
         	if ($order['column'] == $orderColumn && $order['direction'] == $orderDirection)
