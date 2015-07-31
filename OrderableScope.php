@@ -27,6 +27,17 @@ class OrderableScope implements ScopeInterface
 	 */
 	public function remove(Builder $builder, Model $model)
 	{
-	    // TODO
+		$query = $builder->getQuery();
+		$property = $query->unions ? 'unionOrders' : 'orders';
+		$orderColumn = $model->getOrderColumnName();
+		$orderDirection = $model->getOrderColumnDirection();
+        
+        foreach ($query->{$property} as $key => $order)
+        {
+        	if ($order['column'] == $orderColumn && $order['direction'] == $orderDirection)
+        	{
+        		unset($query->{$property}[$key]);
+        	}
+        }
 	}
 }
