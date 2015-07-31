@@ -21,6 +21,6 @@ trait OrderableModelTrait
 
     public function getOrderColumnDirection()
     {
-        return (property_exists($this, 'orderColumnDirection')) ? $this->orderColumn : 'asc';
+        return (property_exists($this, 'orderColumnDirection')) ? $this->orderColumnDirection : 'asc';
     }
 }
