@@ -13,4 +13,9 @@ trait OrderableModelTrait
     {
         static::addGlobalScope(new OrderableScope);
     }
+
+    public function getOrderColumnName()
+    {
+    	return (property_exists($this, 'orderColumn')) ? $this->orderColumn : 'order';
+    }
 }
