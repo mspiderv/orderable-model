@@ -4,9 +4,7 @@ namespace Vitlabs\OrderableModel\Contracts;
 
 interface OrderableModelContract
 {
+    public static function getOrderColumnName();
 
-    public function getOrderColumnName();
-
-    public function getOrderColumnDirection();
-
+    public static function getOrderColumnDirection();
 }

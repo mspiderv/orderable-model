@@ -15,13 +15,13 @@ trait OrderableModelTrait
         static::addGlobalScope(new OrderableScope);
     }
 
-    public function getOrderColumnName()
+    public static function getOrderColumnName()
     {
-        return (property_exists($this, 'orderColumnName')) ? $this->orderColumn : 'order';
+        return (property_exists(__CLASS__, 'orderColumnName')) ? static::$orderColumn : 'order';
     }
 
-    public function getOrderColumnDirection()
+    public static function getOrderColumnDirection()
     {
-        return (property_exists($this, 'orderColumnDirection')) ? $this->orderColumnDirection : 'asc';
+        return (property_exists(__CLASS__, 'orderColumnDirection')) ? static::$orderColumnDirection : 'asc';
     }
 }

@@ -16,7 +16,7 @@ class OrderableScope implements ScopeInterface
     */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->getQuery()->orderBy($model->getOrderColumnName(), $model->getOrderColumnDirection());
+        $builder->getQuery()->orderBy($model::getOrderColumnName(), $model::getOrderColumnDirection());
     }
 
     /**
@@ -29,8 +29,8 @@ class OrderableScope implements ScopeInterface
     {
         $query = $builder->getQuery();
         $property = $query->unions ? 'unionOrders' : 'orders';
-        $orderColumn = $model->getOrderColumnName();
-        $orderDirection = $model->getOrderColumnDirection();
+        $orderColumn = $model::getOrderColumnName();
+        $orderDirection = $model::getOrderColumnDirection();
 
         foreach ($query->{$property} as $key => $order)
         {
