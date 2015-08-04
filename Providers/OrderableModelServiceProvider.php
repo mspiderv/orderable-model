@@ -19,6 +19,10 @@ class OrderableModelServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
+        // Load Translation Files
+        $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang/', 'orderable-model');
+
+        // Register Routes
         $router->group(['namespace' => $this->namespace], function ($router) {
             require __DIR__ . '/../routes.php';
         });

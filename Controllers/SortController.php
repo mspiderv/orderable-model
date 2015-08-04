@@ -71,18 +71,23 @@ class SortController extends Controller
         return $this->success();
     }
 
-    protected function error($message = '')
+    protected function error($console = '')
     {
         return [
             'result' => false,
-            'message' => $message
+            'title' => trans('orderable-model::main.orderError'),
+            'message' => trans('orderable-model::main.orderErrorDescription'),
+            'console' => $console
         ];
     }
 
     protected function success()
     {
         return [
-            'result' => true
+            'result' => true,
+            'title' => trans('orderable-model::main.orderSuccess'),
+            'message' => trans('orderable-model::main.orderSuccessDescription'),
+            'console' => '',
         ];
     }
 }
