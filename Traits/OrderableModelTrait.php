@@ -19,12 +19,12 @@ trait OrderableModelTrait
 
     public static function getOrderColumnName()
     {
-        return (property_exists(__CLASS__, 'orderColumnName')) ? static::$orderColumn : 'order';
+        return (isset(static::$orderColumn)) ? static::$orderColumn : 'order';
     }
 
     public static function getOrderColumnDirection()
     {
-        return (property_exists(__CLASS__, 'orderColumnDirection')) ? static::$orderColumnDirection : 'asc';
+        return (isset(static::$orderColumnDirection)) ? static::$orderColumnDirection : 'asc';
     }
 
     /**
