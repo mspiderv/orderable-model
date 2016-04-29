@@ -1,3 +1,9 @@
 <?php
 
-Route::post('~~~orderable-model/save-sort', 'SortController@saveSort');
+$config = config('orderable-models');
+
+Route::post($config['url'], [
+    'middleware' => $config['middleware'],
+    'uses' => 'SortController@saveSort',
+    'as' => $config['as'],
+]);

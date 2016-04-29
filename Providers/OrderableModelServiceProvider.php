@@ -35,5 +35,14 @@ class OrderableModelServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Publish configuration file
+        $this->publishes([
+            __DIR__ . '/../Config/orderable-models.php' => config_path('orderable-models.php'),
+        ], 'config');
+
+        // Merge configuration file
+        $this->mergeConfigFrom(
+            __DIR__ . '/../Config/orderable-models.php', 'orderable-models'
+        );
     }
 }
